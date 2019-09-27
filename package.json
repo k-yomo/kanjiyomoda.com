@@ -1,0 +1,50 @@
+{
+  "name": "kanjiyomoda.com",
+  "version": "0.0.1",
+  "description": "my blog",
+  "main": "index.js",
+  "repository": "https://github.com/k-yomo/kanjiyomoda.com.git",
+  "author": "k-yomo <kanji.yy@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon",
+    "build": "next build && tsc --project tsconfig.server.json",
+    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "prettier": "prettier --write ./**/*.ts{,x}",
+    "lint": "eslint --fix './**/*.ts{,x}'"
+  },
+  "dependencies": {
+    "baseui": "^9.5.2",
+    "cross-env": "^6.0.0",
+    "next": "^9.0.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "styletron-engine-atomic": "^1.4.1",
+    "styletron-react": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.8",
+    "@types/react": "^16.9.3",
+    "@types/react-dom": "^16.9.1",
+    "@types/styletron-engine-atomic": "^1.1.0",
+    "@types/styletron-react": "^5.0.2",
+    "@types/styletron-standard": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-standard": "^4.0.1",
+    "nodemon": "^1.19.2",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.4.1",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "typescript": "^3.6.3",
+    "typescript-eslint": "^0.0.1-alpha.0"
+  }
+}

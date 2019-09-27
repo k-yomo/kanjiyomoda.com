@@ -1,0 +1,12 @@
+# next
+.next
+
+# Dependency directories
+node_modules/
+
+# Logs
+yarn-debug.log*
+yarn-error.log*
+
+# build
+dist/
