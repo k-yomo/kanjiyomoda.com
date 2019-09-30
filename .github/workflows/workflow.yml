@@ -1,4 +1,4 @@
-name: Node CI
+name: Main Workflow
 
 on: [push, pull_request]
 
@@ -10,9 +10,13 @@ jobs:
     - name: Build 
       uses: actions/setup-node@v1
       with:
-        node-version: '12.7'
+        node-version: 12.x
+
+    - name: Build
       run: yarn install
+
     - name: Lint
       run: yarn run lint
+
     - name: Format
       run: yarn run prettier
