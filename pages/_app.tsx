@@ -1,11 +1,8 @@
-import React from 'react'
+import * as React from 'react'
 import App from 'next/app'
 import { Provider as StyletronProvider } from 'styletron-react'
 import { styletron, debug } from '../styletron'
-import {
-  BaseProvider,
-  LightThemeMove,
-} from 'baseui'
+import { BaseProvider, LightThemeMove } from 'baseui'
 
 export default class MyApp extends App {
   public render() {

@@ -1,11 +1,17 @@
 module.exports = {
+  parser:  '@typescript-eslint/parser',
+  extends:  [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:prettier/recommended',
+    'prettier/@typescript-eslint'
+  ],
   env: {
     browser: true,
     es6: true
   },
-  extends: [
-    'standard'
-  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -18,8 +24,15 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: [
-    'react'
+    'react',
+    '@typescript-eslint'
   ],
   rules: {
-  }
+    "@typescript-eslint/explicit-function-return-type": 0
+  },
+  settings:  {
+    react:  {
+      version:  'detect',
+    },
+  },
 }

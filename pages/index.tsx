@@ -1,1 +1,4 @@
-export default () => <div>Hello World!</div>;
+import * as React from 'react'
+
+const IndexPage = () => <div>Hello World!</div>
+export default IndexPage
