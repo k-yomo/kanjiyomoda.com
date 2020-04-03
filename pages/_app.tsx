@@ -1,18 +1,26 @@
-import * as React from 'react'
-import App from 'next/app'
-import { Provider as StyletronProvider } from 'styletron-react'
-import { styletron, debug } from '../styletron'
-import { BaseProvider, LightThemeMove } from 'baseui'
+import React from 'react'
+import { AppProps } from 'next/app'
+import { ThemeProvider, Styled } from 'theme-ui'
+import theme from '../src/constants/theme'
+import Header from '../src/components/Header'
+import Footer from '../src/components/Footer'
 
-export default class MyApp extends App {
-  public render() {
-    const { Component, pageProps } = this.props
-    return (
-      <StyletronProvider value={styletron} debug={debug} debugAfterHydration>
-        <BaseProvider theme={LightThemeMove}>
-          <Component {...pageProps} />
-        </BaseProvider>
-      </StyletronProvider>
-    )
-  }
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider theme={theme}>
+      <Header />
+      <Styled.root>
+        <Component {...pageProps} />
+      </Styled.root>
+      <Footer />
+      <style jsx global>{`
+        * {
+          transition: all 0.1s ease-in;
+        }
+        html {
+          height: 100%;
+        }
+      `}</style>
+    </ThemeProvider>
+  )
 }

@@ -7,28 +7,26 @@
   "author": "k-yomo <kanji.yy@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "nodemon",
-    "build": "next build && tsc --project tsconfig.server.json",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
     "prettier": "prettier --write ./**/*.ts{,x}",
     "lint": "eslint --fix './**/*.ts{,x}'"
   },
   "dependencies": {
-    "baseui": "^9.5.2",
-    "cross-env": "^6.0.0",
+    "@emotion/core": "^10.0.28",
+    "@mdx-js/loader": "^1.5.8",
+    "@next/mdx": "^9.3.4",
     "next": "^9.3.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "styletron-engine-atomic": "^1.4.1",
-    "styletron-react": "^5.2.1"
+    "react-icons": "^3.9.0",
+    "theme-ui": "^0.3.1"
   },
   "devDependencies": {
     "@types/node": "^12.7.8",
     "@types/react": "^16.9.3",
     "@types/react-dom": "^16.9.1",
-    "@types/styletron-engine-atomic": "^1.1.0",
-    "@types/styletron-react": "^5.0.2",
-    "@types/styletron-standard": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^2.3.2",
     "@typescript-eslint/parser": "^2.3.2",
     "eslint": "^6.5.0",
