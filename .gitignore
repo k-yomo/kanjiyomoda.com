@@ -10,3 +10,7 @@ yarn-error.log*
 
 # build
 dist/
+out/
+
+# firebase
+.firebase
