@@ -4,10 +4,16 @@ import { IoLogoGithub, IoLogoTwitter } from 'react-icons/io'
 import Image from '../components/Image'
 import { profileImage } from '../constants/images'
 import { githubProfileUrl, twitterProfileUrl } from '../constants/sns'
+import SeoMeta from '../components/SeoMeta'
 
 export default function IndexPage() {
   return (
     <main>
+      <SeoMeta
+        title="kanjiyomoda.com"
+        description="k-yomoの技術ブログです。GoやGCPなどを中心に雑多に書いていこうと思います。"
+        image={profileImage.src}
+      />
       <Grid gap={2} columns={[1, 2, '1fr 3fr']}>
         <Box px={2} sx={{ textAlign: ['center'] }}>
           <Image img={profileImage} alt="プロフィールアイコン" style={{ width: 150 }} />
