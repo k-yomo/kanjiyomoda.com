@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "export": "next build && next export",
     "start": "next start",
     "prettier": "prettier --write ./**/*.ts{,x}",
     "lint": "eslint --fix './**/*.ts{,x}'"
@@ -17,11 +18,19 @@
     "@emotion/core": "^10.0.28",
     "@mdx-js/loader": "^1.5.8",
     "@next/mdx": "^9.3.4",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-optipng": "^7.1.0",
+    "imagemin-svgo": "^7.1.0",
     "next": "^9.3.2",
+    "next-compose-plugins": "^2.2.0",
+    "next-optimized-images": "^2.5.7",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-icons": "^3.9.0",
-    "theme-ui": "^0.3.1"
+    "svg-sprite-loader": "^4.2.2",
+    "theme-ui": "^0.3.1",
+    "webp-loader": "^0.6.0"
   },
   "devDependencies": {
     "@types/node": "^12.7.8",

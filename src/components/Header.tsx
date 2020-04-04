@@ -15,7 +15,7 @@ export default function Header() {
           </Link>
         </Box>
         <Box p={2}>
-          <IoMdGlasses className="icon-spin" size={50} onClick={toggleColorMode} />
+          <IoMdGlasses size={50} onClick={toggleColorMode} style={{ cursor: 'pointer' }} />
         </Box>
       </Flex>
       <style jsx>{`
@@ -25,10 +25,6 @@ export default function Header() {
           max-width: 1200px;
           margin: 0 auto;
           padding: 0 15px;
-        }
-        svg {
-          -webkit-animation: icon-spin 2s infinite linear;
-          animation: icon-spin 2s infinite linear;
         }
       `}</style>
     </header>
