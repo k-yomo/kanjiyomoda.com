@@ -11,7 +11,9 @@ export default function Header() {
       <Flex sx={{ alignItems: 'center', height: '100%' }}>
         <Box p={2} sx={{ flex: '1 1 auto' }}>
           <Link href="/">
-            <Text sx={{ fontSize: 20, fontWeight: 'bold' }}>Kanji Yomoda</Text>
+            <Text as="span" sx={{ fontSize: 20, fontWeight: 'bold' }}>
+              Kanji Yomoda
+            </Text>
           </Link>
         </Box>
         <Box p={2}>

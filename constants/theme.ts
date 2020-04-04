@@ -1,3 +1,5 @@
+import nightOwl from '@theme-ui/prism/presets/dracula.json'
+
 const theme = {
   useCustomProperties: true,
   colors: {
@@ -36,6 +38,11 @@ const theme = {
         color: 'secondary',
         textDecoration: 'underline',
       },
+    },
+    pre: {
+      ...nightOwl,
+      padding: 1,
+      borderRadius: 3,
     },
   },
 }
