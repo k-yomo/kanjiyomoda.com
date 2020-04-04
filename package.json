@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "export": "next build && next export",
+    "export": "next build && next export && node cmd/buildSitemap.js",
+    "deploy": "yarn export && firebase deploy",
     "start": "next start",
     "prettier": "prettier --write ./**/*.ts{,x}",
     "lint": "eslint --fix './**/*.ts{,x}'"
