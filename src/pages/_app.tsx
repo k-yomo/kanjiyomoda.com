@@ -1,10 +1,10 @@
-import React, { ReactChildren } from 'react'
-import { AppProps } from 'next/app'
-import { ThemeProvider, Styled } from 'theme-ui'
-import Prism from '@theme-ui/prism'
-import theme from '../constants/theme'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import React, { ReactChildren } from "react"
+import { AppProps } from "next/app"
+import { ThemeProvider, Styled } from "theme-ui"
+import Prism from "@theme-ui/prism"
+import theme from "../constants/theme"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 const components = {
   pre: function render({ children }: { children: ReactChildren }) {

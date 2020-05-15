@@ -1,6 +1,6 @@
-import React from 'react'
-import Head from 'next/head'
-import SocialMeta from './SocialMeta'
+import React from "react"
+import Head from "next/head"
+import SocialMeta from "./SocialMeta"
 
 interface Props {
   title: string

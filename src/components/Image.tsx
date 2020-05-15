@@ -1,5 +1,5 @@
-import React from 'react'
-import LazyLoad from 'react-lazyload'
+import React from "react"
+import LazyLoad from "react-lazyload"
 
 interface Props {
   img: { src: string; preSrc: string }

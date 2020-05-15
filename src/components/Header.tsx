@@ -1,23 +1,23 @@
-import React from 'react'
-import { Flex, Box, Text, Link, useColorMode } from 'theme-ui'
-import { modes } from '../constants/colorMode'
-import { IoMdGlasses } from 'react-icons/io'
+import React from "react"
+import { Flex, Box, Text, Link, useColorMode } from "theme-ui"
+import { modes } from "../constants/colorMode"
+import { IoMdGlasses } from "react-icons/io"
 
 export default function Header() {
   const [colorMode, setColorMode] = useColorMode()
   const toggleColorMode = () => setColorMode(colorMode === modes.light ? modes.dark : modes.light)
   return (
     <header>
-      <Flex sx={{ alignItems: 'center', height: '100%' }}>
-        <Box p={2} sx={{ flex: '1 1 auto' }}>
+      <Flex sx={{ alignItems: "center", height: "100%" }}>
+        <Box p={2} sx={{ flex: "1 1 auto" }}>
           <Link href="/">
-            <Text as="span" sx={{ fontSize: 20, fontWeight: 'bold' }}>
+            <Text as="span" sx={{ fontSize: 20, fontWeight: "bold" }}>
               Kanji Yomoda
             </Text>
           </Link>
         </Box>
         <Box p={2}>
-          <IoMdGlasses size={50} onClick={toggleColorMode} style={{ cursor: 'pointer' }} />
+          <IoMdGlasses size={50} onClick={toggleColorMode} style={{ cursor: "pointer" }} />
         </Box>
       </Flex>
       <style jsx>{`
