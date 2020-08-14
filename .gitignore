@@ -14,3 +14,7 @@ out/
 
 # firebase
 .firebase
+
+
+# terraform
+**/.terraform/*
