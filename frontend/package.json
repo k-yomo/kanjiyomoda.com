@@ -13,7 +13,8 @@
     "deploy": "yarn export && firebase deploy",
     "start": "next start",
     "prettier": "prettier --write ./**/*.ts{,x}",
-    "lint": "eslint --fix './**/*.ts{,x}'",
+    "fmtcheck": "prettier --check **/*.ts{,x}",
+    "lint": "eslint --fix --ext './**/*.ts{,x}'",
     "imggen": "node src/cmd/writeImageConstants.js"
   },
   "lint-staged": {
