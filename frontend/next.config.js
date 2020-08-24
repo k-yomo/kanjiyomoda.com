@@ -10,8 +10,8 @@ module.exports = withPlugins([
       imagesFolder: 'images',
       imagesName: '[name]-[hash].[ext]',
       handleImages: ['jpeg', 'png', 'svg', 'webp', 'gif'],
-      optimizeImages: true,
-      optimizeImagesInDev: true,
+      optimizeImages: false, // TODO: enable optimizeImages. For now building on docker fails for missing some resources.
+      optimizeImagesInDev: false,
       mozjpeg: {
         quality: 80,
       },
