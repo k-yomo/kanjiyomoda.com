@@ -2,6 +2,10 @@ variable project {
   default = "kanji-yomoda"
 }
 
+variable project_number {
+  default = "1061778698445"
+}
+
 variable region {
   default = "asia-northeast1"
 }

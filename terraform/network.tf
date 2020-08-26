@@ -26,3 +26,9 @@ resource google_compute_subnetwork main_public {
     range_name    = "gke-services-ip-range"
   }
 }
+
+resource google_compute_address kanjiyomoda_com_ip {
+  name         = "kanjiyomoda-com-ip"
+  region       = "asia-northeast1"
+  network_tier = "STANDARD"
+}
