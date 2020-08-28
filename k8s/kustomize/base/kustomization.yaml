@@ -7,4 +7,4 @@ namespace: default
 images:
 - name: frontend
   newName: asia.gcr.io/kanji-yomoda/frontend
-  newTag: latest
+  newTag: d0a270a92691ac695617e5c3e33d1ecf62ca9ef2
