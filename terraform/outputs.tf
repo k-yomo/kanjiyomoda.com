@@ -5,3 +5,7 @@ output kanjiyomoda_com_ip {
 output gke_gcr_key {
   value = google_service_account_key.gke_gcr.private_key
 }
+
+output ci_key {
+  value = google_service_account_key.ci_user.private_key
+}
