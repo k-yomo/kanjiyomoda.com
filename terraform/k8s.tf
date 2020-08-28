@@ -10,12 +10,6 @@ resource google_container_cluster main {
   remove_default_node_pool = true
   initial_node_count       = 1
 
-  addons_config {
-    istio_config {
-      disabled = false
-    }
-  }
-
   ip_allocation_policy {
     cluster_secondary_range_name  = google_compute_subnetwork.main_public.secondary_ip_range[0].range_name
     services_secondary_range_name = google_compute_subnetwork.main_public.secondary_ip_range[1].range_name
@@ -34,7 +28,7 @@ resource google_container_node_pool preemptible {
 
   autoscaling {
     min_node_count = 1
-    max_node_count = 4
+    max_node_count = 3
   }
 
   node_config {

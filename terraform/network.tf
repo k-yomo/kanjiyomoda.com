@@ -1,6 +1,6 @@
 locals {
-  vpc_name = "kanji-yomoda-vpc"
-  public_subnet_cidr = "10.0.0.0/16"
+  vpc_name               = "kanji-yomoda-vpc"
+  public_subnet_cidr     = "10.0.0.0/16"
   public_subnet_gke_cidr = "10.1.0.0/16"
 }
 
@@ -30,5 +30,5 @@ resource google_compute_subnetwork main_public {
 resource google_compute_address kanjiyomoda_com_ip {
   name         = "kanjiyomoda-com-ip"
   region       = "asia-northeast1"
-  network_tier = "STANDARD"
+  network_tier = "PREMIUM"
 }
