@@ -57,7 +57,7 @@ jobs:
       - name: Update Docker Image Tag
         run: |
           cd k8s/kustomize/base
-          kustomize edit set image asia.gcr.io/kanji-yomoda/frontend:${{ github.sha }}
+          kustomize edit set image frontend=asia.gcr.io/kanji-yomoda/frontend:${{ github.sha }}
           cat kustomization.yaml
 
       - name: Commit files

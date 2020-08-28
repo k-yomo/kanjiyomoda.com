@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: frontend-image
+          image: frontend
           ports:
             - containerPort: 3000
           readinessProbe:
