@@ -103,7 +103,7 @@ export default ({ children }) => (
 
 sitemap.xml の書き方については、[sitemaps.org](https://www.sitemaps.org/ja/protocol.html)に使用できる XML タグについてやサンプルが載っています。
 
-このテックブログでは、`/frontend/pages` 以下のページを取得し、各ファイルから URL と最終更新時刻を組み立て、愚直に sitemap.xml を作成するコマンドを用意しました。
+このテックブログでは、`src/pages` 以下のページを取得し、各ファイルから URL と最終更新時刻を組み立て、愚直に sitemap.xml を作成するコマンドを用意しました。
 
 ```js filepath=cmd/buildSitemap.js
 const modDate = new Date(fs.statSync(page).mtime);
