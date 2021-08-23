@@ -74,7 +74,7 @@ const withTOC = (children: JSX.Element[]) => {
 
 export default function PostLayout({ meta, children }: Props) {
   return (
-    <article className="max-w-[60rem] mx-auto mb-8 px-4 leading-7 break-words">
+    <article className="max-w-[60rem] mx-auto mb-8 px-4 leading-7 tracking-[0.005rem] break-words">
       <SEOMeta
         title={meta.title}
         description={meta.description}
