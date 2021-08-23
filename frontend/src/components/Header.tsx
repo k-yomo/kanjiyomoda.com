@@ -22,7 +22,7 @@ export default memo(function Header() {
           <div className="flex items-center justify-end flex-1">
             {mounted && (
               <IoMdGlasses
-                className="cursor-pointer dark:text-white"
+                className="cursor-pointer dark:text-white hover:text-rose-500 dark:hover:text-rose-500"
                 size={36}
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               />
