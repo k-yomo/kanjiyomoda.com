@@ -19,10 +19,10 @@ jobs:
           node-version: 14.x
 
       - name: Install
-        run: cd frontend; yarn install
+        run: cd frontend; npm install
 
       - name: Lint
-        run: cd frontend; yarn lint
+        run: cd frontend; npm run lint
 
       - name: Format Check
-        run: cd frontend; yarn fmtcheck
+        run: cd frontend; npm run fmtcheck
