@@ -5,13 +5,12 @@ import { IoMdGlasses } from 'react-icons/io';
 
 export default memo(function Header() {
   const { theme, setTheme } = useTheme();
-  console.log(theme);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
   return (
     <header>
-      <div className="relative bg-white dark:bg-black mx-auto px-6 border-b-[1px] border-gray-200 dark:border-gray-900">
+      <div className="relative bg-white dark:bg-black mx-auto px-6 border-b-[1px] border-gray-200 dark:border-gray-800">
         <div className="flex justify-between items-center h-20 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/">
@@ -22,7 +21,7 @@ export default memo(function Header() {
           <div className="flex items-center justify-end flex-1">
             {mounted && (
               <IoMdGlasses
-                className="cursor-pointer dark:text-white hover:text-rose-500 dark:hover:text-rose-500"
+                className="cursor-pointer dark:text-white hover:text-primary-500 dark:hover:text-primary-500"
                 size={36}
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               />

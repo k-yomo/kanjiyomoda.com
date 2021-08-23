@@ -1,0 +1,167 @@
+import PostLayout from '@src/layouts/PostLayout';
+import MyTwitterLink from '@src/components/MyTwitterLink';
+import TopImage from '@public/images/posts/started-tech-blog/top.jpg';
+
+export const meta = {
+  path: '/posts/start-tech-blog',
+  title: 'テックブログ始めました！',
+  description:
+    'テックブログの第一記事目ということで自己紹介、テックブログの技術構成、実装に当たって工夫した点などを紹介しています。',
+  topImg: TopImage,
+};
+
+はじめまして、<MyTwitterLink/>です。n ヶ月ぶり、m 回目の「技術ブログ書くぞ」という気持ちが遂に実り、個人のテックブログを書いていくことにしました！
+
+この記念すべき第一回記事では、気合を入れすぎて最初で最後の記事とならないよう、簡単に自己紹介した後、簡単に本ブログの技術構成を解説し、簡単に工夫した点などを紹介してければと思います。
+
+## 自己紹介
+
+### 所属
+
+今年の 4 月に株式会社メルカリに転職し、現在はメルカリ US の検索基盤チームに所属しています。
+
+メルカリ US は主にパロアルト(US@US)と東京(US@Tokyo)に拠点があり、その 2 つの拠点から US 版メルカリを開発しています。(とは言っても現在はフルリモートですが...！)
+
+私は US@Tokyo に所属しているため、メルカリ US と言っても私自身アメリカにいるわけではありません。
+
+### 使っている/興味のある技術
+
+仕事でも趣味でも Go を書くことが一番多く、最近は Rust にも興味があり、AtCoder では Rust で問題を解いています。
+
+今は特に情報検索の領域に興味が強く、このブログでも検索分野についての学びをアウトプットしていければと考えています。
+
+また、それ以外にも GCP や Terraform、AtCoder、ISUCON など雑多に思うところを書いていく予定です。
+
+## テックブログの技術構成
+
+このテックブログでは、**TypeScript、Next.js、MDX、Tailwind CSS**を使用しています。
+
+上記の技術構成については自身がフロントエンドに明るくないこともあり、主に「慣れているから」という理由で選びました。
+
+Headless CMS などのまだ触ったことのない構成も魅力的でしたが、**実は以前に一度、個人ブログを作る際に諸々の勉強も兼ねてと GKE 上に立てて満足して記事を 1 つも書かずに終えた反省**もあり、今回はとにかく早く記事が書ける構成を選んだ次第です。
+
+また、当サイトは Vercel 上にホスティングされており、master ブランチの push をフックに GitHub Actions のワークフローが走り、Vercel にデプロイする形になっています。
+
+今はまだ静的サイトのみですが、仕事でもプライベートでも情報検索に興味があるため、ゆくゆくはこのテックブログも検索周りを良い感じにしたいと考えています。(そのためにはまずいっぱい記事を書かないと...!)
+
+## 工夫したこと
+
+ここからは、このテックブログを作るに当たって自分なりに工夫した事を紹介します。
+
+### 目次の自動生成
+
+このブログでは、記事から h2 を取り出し、目次を自動的に生成するようにしています。
+
+下記が実際のコードになります。目次用に h2 の文字を取り出している処理と、各 h2 に対してジャンプ出来るよう id を割り振る処理をやや強引ですが行っています。
+
+```tsx
+const withTOC = (children: JSX.Element[]) => {
+  const headings: string[] = children
+    .filter((child) => child.props && child.props.originalType === "h2")
+    .map((h2) => h2.props.children)
+  let index = 0
+  children = React.Children.map(children, (child) => {
+    if (child.props && child.props.originalType === "h2") {
+      const id = index.toString()
+      index++
+      return React.cloneElement(child, { id }, child.props.children)
+    }
+    return React.cloneElement(child)
+  })
+  const firstH2 = children.findIndex((tag) => tag.props.originalType === "h2")
+  return [
+    ...children.slice(0, firstH2),
+    <div key="toc" className="my-10">
+      <TableOfContents headings={headings}/>
+    </div>,
+    ...children.slice(firstH2),
+  ]
+}
+
+return (
+  ~~~
+  <MDXProvider components={components}>
+    {withTOC(children)}
+  </MDXProvider>
+  ~~~
+)
+```
+
+export default ({ children }) => (
+  <PostLayout meta={meta}>{children}</PostLayout>
+);
+
+### sitemap.xml の自動生成
+
+> サイトマップとは、サイト上のページや動画などのファイルについての情報や、各ファイルの関係を伝えるファイルです。Google などの検索エンジンは、このファイルを読み込んで、より効率的にクロールを行います。
+
+<cite className="text-sm">
+  https://developers.google.com/search/docs/advanced/sitemaps/overview?hl=ja
+</cite>
+
+サイトマップとは上記で引用した通り、サイト内のページに関する情報をまとめて伝える役割を持ったファイルです。
+
+sitemap.xml の書き方については、[sitemaps.org](https://www.sitemaps.org/ja/protocol.html)に使用できる XML タグについてやサンプルが載っています。
+
+このテックブログでは、`/frontend/pages` 以下のページを取得し、各ファイルから URL と最終更新時刻を組み立て、愚直に sitemap.xml を作成するコマンドを用意しました。
+
+```js filepath=cmd/buildSitemap.js
+const modDate = new Date(fs.statSync(page).mtime);
+const lastMod = `${modDate.getFullYear()}-${(
+  '0' +
+  (modDate.getMonth() + 1)
+).slice(-2)}-${('0' + modDate.getDate()).slice(-2)}`;
+
+page = page.replace(path.join(__dirname, '..', 'src', 'pages'), '');
+if (page.match(/^\/_.*$/)) {
+  return;
+}
+page = page.replace(/.(tsx|mdx)$/, '');
+if (page.match(/.*\/index$/)) {
+  page = page.replace(/(.*)\/index$/, '$1');
+}
+page = `${SITE_ROOT}${page}`;
+
+pageXMLs.push(`  <url>
+<loc>${page}</loc>
+<lastmod>${lastMod}</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>`);
+```
+
+このサイトマップを構築コマンドをビルド時に実行されるようになっています。
+
+```json filepath=package.json
+{
+  ...
+  "scripts": {
+    "build": "node cmd/buildSitemap.js && next build",
+    ...
+  },
+  ...
+}
+```
+
+また検索エンジンにサイトマップの場所を知らせるため、`robots.txt`に sitemap.xml の URL を記載しています。
+
+```txt filepath=public/robots.txt
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+
+Sitemap: https://kanjiyomoda.com/sitemap.xml
+```
+
+### ダークモード対応
+
+後からダークモードにするのも一苦労かなと思い、先にダークモード対応を実装してみました。
+
+幸い、Next.js の Tailwind CSS によるダークモード対応は[next-themes](https://github.com/pacocoursey/next-themes#with-tailwind)を使う事でとても簡単に実装することができました。
+
+ヘッダーのサングラスボタンからダークモードに変更出来るので、是非試してみてください。
+
+<br />
+
+以上が、このテックブログを作るに当たって個人的に工夫をした箇所になります。
+
+上記のファイルやコードについてさらに詳しく見たい方や、もっと良い方法があることに気づき PR を送ってくれる方などいましたら、このテックブログのリポジトリは GitHub の[k-yomo/kanjiyomoda.com](https://github.com/k-yomo/kanjiyomoda.com)にありますので、ご覧頂ければと思います。

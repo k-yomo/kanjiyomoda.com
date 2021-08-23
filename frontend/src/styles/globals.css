@@ -4,10 +4,10 @@
 @tailwind utilities;
 
 body {
-    @apply text-gray-800;
-    @apply dark:text-white;
+    @apply text-text-primary;
+    @apply dark:text-text-primary-dark;
 }
 
 a {
-    @apply text-rose-500
+    @apply text-primary-500
 }
