@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --write **/*.{ts,tsx}",
+    "fmt": "prettier --write **/*.{ts,tsx}",
     "fmtcheck": "prettier --check **/*.{ts,tsx}"
   },
   "dependencies": {

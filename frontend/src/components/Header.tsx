@@ -15,7 +15,7 @@ export default memo(function Header() {
         <div className="flex justify-between items-center h-20 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/">
-              <a className="tracking-wider">kanjiyomoda.com</a>
+              <a className="tracking-wider">k-yomo&apos;s tech blog</a>
             </Link>
           </div>
 
