@@ -39,15 +39,15 @@ const Home: NextPage = () => {
         </div>
       </div>
       <div className="flex items-center justify-center space-x-4">
-        <a href={TWITTER_PROFILE_URL} className="text-black dark:text-white">
+        <a href={TWITTER_PROFILE_URL} className="text-black dark:text-white hover:text-rose-500 dark:hover:text-rose-500">
           <IoLogoGithub size={32} />
         </a>
-        <a href={GITHUB_PROFILE_URL} className="text-black dark:text-white">
+        <a href={GITHUB_PROFILE_URL} className="text-black dark:text-white hover:text-rose-500 dark:hover:text-rose-500">
           <IoLogoTwitter size={32} />
         </a>
         <a
           href={`mailto:${EMAIL_ADDRESS}`}
-          className="text-black dark:text-white"
+          className="text-black dark:text-white hover:text-rose-500 dark:hover:text-rose-500"
         >
           <IoMailOutline size={32} />
         </a>
