@@ -6,3 +6,7 @@
 body {
     @apply text-gray-700
 }
+
+a {
+    @apply text-rose-500
+}
