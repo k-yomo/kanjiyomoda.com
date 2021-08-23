@@ -2,20 +2,21 @@ name: Frontend workflow
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - '*'
 
 jobs:
-  build:
-    name: Build and lint
+  lint:
+    name: lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Setup Node 13.x
+      - name: Setup Node 14.x
         uses: actions/setup-node@v1
         with:
-          node-version: 13.x
+          node-version: 14.x
 
       - name: Install
         run: cd frontend; yarn install
@@ -25,17 +26,3 @@ jobs:
 
       - name: Format Check
         run: cd frontend; yarn fmtcheck
-
-      - name: Setup Cloud SDK
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-        with:
-          version: '297.0.1'
-          service_account_key: ${{ secrets.GCP_CI_USER_KEY }}
-
-      - name: Push Docker Image to GCR
-        run: |
-          gcloud --quiet auth configure-docker
-          docker build -t frontend -f frontend.Dockerfile .
-          docker tag frontend asia.gcr.io/kanji-yomoda/frontend:${{ github.sha }}
-          docker tag frontend asia.gcr.io/kanji-yomoda/frontend:latest
-          docker push asia.gcr.io/kanji-yomoda/frontend
