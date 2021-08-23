@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ChevronRightIcon, HomeIcon } from '@heroicons/react/solid';
 
-const structureMapping: { [key: string]: string } = {
+const pathNameMap: { [key: string]: string } = {
   posts: 'ブログ',
 };
 
@@ -15,7 +15,7 @@ export default function BreadCrumbs({ title }: Props) {
   const paths = router.pathname.split('/').filter((path) => path !== '');
   return (
     <nav className="flex" aria-label="Breadcrumb">
-      <ol role="list" className="flex items-center space-x-4">
+      <ol role="list" className="flex items-center space-x-2 sm:space-x-4">
         <li>
           <div>
             <Link href="/">
@@ -38,12 +38,14 @@ export default function BreadCrumbs({ title }: Props) {
               />
               <Link href={'/' + paths.slice(0, i + 1).join('/')}>
                 <a
-                  className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-300"
+                  className="ml-2 sm:ml-2 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-300"
                   aria-current={paths.length === i + 1 ? 'page' : undefined}
                 >
                   {paths.length === i + 1
-                    ? title.substr(0, 15) + '...'
-                    : structureMapping[path]}
+                    ? title.length > 15
+                      ? title.substr(0, 15) + '...'
+                      : title
+                    : pathNameMap[path]}
                 </a>
               </Link>
             </div>
