@@ -27,7 +27,7 @@
     "@types/gtag.js": "^0.0.7",
     "@types/mdx-js__react": "^1.5.4",
     "@types/react": "17.0.19",
-    "autoprefixer": "^10.3.2",
+    "autoprefixer": "^10.3.3",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
     "next-compose-plugins": "^2.2.1",
