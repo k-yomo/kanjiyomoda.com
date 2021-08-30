@@ -40,13 +40,13 @@ const Home: NextPage = () => {
       </div>
       <div className="flex items-center justify-center space-x-4">
         <a
-          href={TWITTER_PROFILE_URL}
+          href={GITHUB_PROFILE_URL}
           className="text-black dark:text-white hover:text-primary-500 dark:hover:text-primary-500"
         >
           <IoLogoGithub size={32} />
         </a>
         <a
-          href={GITHUB_PROFILE_URL}
+          href={TWITTER_PROFILE_URL}
           className="text-black dark:text-white hover:text-primary-500 dark:hover:text-primary-500"
         >
           <IoLogoTwitter size={32} />
