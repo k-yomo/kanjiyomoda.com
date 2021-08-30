@@ -14,14 +14,14 @@ export default memo(function Header() {
         <div className="flex justify-between items-center h-20 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <Link href="/">
-              <a className="tracking-wider">k-yomo&apos;s tech blog</a>
+              <a className="tracking-wider hover:underline">k-yomo&apos;s tech blog</a>
             </Link>
           </div>
 
           <div className="flex items-center justify-end flex-1">
             {mounted && (
               <IoMdGlasses
-                className="cursor-pointer dark:text-white hover:text-primary-500 dark:hover:text-primary-500"
+                className="cursor-pointer dark:text-white hover:text-gray-500 dark:hover:text-gray-300"
                 size={36}
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               />

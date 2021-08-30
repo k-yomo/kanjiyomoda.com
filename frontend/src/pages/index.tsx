@@ -32,10 +32,10 @@ const Home: NextPage = () => {
           />
         </div>
         <div className="space-y-1">
-          <h2 className="text-xl text-center sm:text-left">
+          <h2 className="text-md text-center sm:text-left">
             Kanji Yomoda / k-yomo
           </h2>
-          <p>Software Engineer at Mercari, Inc.</p>
+          <p className="text-sm">Software Engineer at Mercari, Inc.</p>
         </div>
       </div>
       <div className="flex items-center justify-center space-x-4">

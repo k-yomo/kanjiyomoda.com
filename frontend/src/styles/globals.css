@@ -6,6 +6,8 @@
 body {
     @apply text-text-primary;
     @apply dark:text-text-primary-dark;
+
+    font-size: 18px;
 }
 
 a {
