@@ -23,7 +23,7 @@
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
-    "@tailwindcss/line-clamp": "^0.2.1",
+    "@tailwindcss/line-clamp": "^0.2.2",
     "@types/gtag.js": "^0.0.7",
     "@types/mdx-js__react": "^1.5.4",
     "@types/react": "17.0.26",
