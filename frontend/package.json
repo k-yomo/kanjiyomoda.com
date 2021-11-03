@@ -11,7 +11,7 @@
     "fmtcheck": "prettier --check **/*.{ts,tsx,mdx}"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.4",
+    "@heroicons/react": "^1.0.5",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^11.1.2",
