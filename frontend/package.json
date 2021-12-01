@@ -29,7 +29,7 @@
     "@types/react": "17.0.27",
     "autoprefixer": "^10.4.0",
     "eslint": "7.32.0",
-    "eslint-config-next": "12.0.2",
+    "eslint-config-next": "12.0.4",
     "next-compose-plugins": "^2.2.1",
     "prettier": "^2.4.1",
     "tailwindcss": "^2.2.19",
